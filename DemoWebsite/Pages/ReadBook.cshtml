@@ -1,0 +1,12 @@
+@page "{id:int}"
+@model ReadBookModel
+@{
+    ViewData["Title"] = Model.Book?.Title ?? "Đọc Sách";
+}
+
+<h1>@Model.Book?.Title</h1>
+@if (!string.IsNullOrEmpty(Model.Book?.ImageUrl))
+{
+    <img src="@Model.Book.ImageUrl" alt="@Model.Book.Title" style="max-width:100%; height:auto;" />
+}
+<p>@Html.Raw(Model.Book?.Content)</p>

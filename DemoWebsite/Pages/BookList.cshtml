@@ -1,0 +1,22 @@
+@page
+@model BookListModel
+@{
+    ViewData["Title"] = "Book List";
+}
+
+<h1>Danh Sách Sách</h1>
+
+<div class="row">
+    @foreach (var book in Model.Books)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@book.ImageUrl" class="card-img-top" alt="@book.Title" />
+                <div class="card-body">
+                    <h5 class="card-title">@book.Title</h5>
+                    <a href="@Url.Page("/ReadBook", new { id = book.Id })" class="btn btn-primary">Đọc sách</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
